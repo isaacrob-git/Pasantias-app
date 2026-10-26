@@ -1,0 +1,32 @@
+pasantias-app/
+├── frontend/
+│   └── src/
+│       ├── components/
+│       │   ├── HoursSummary.jsx
+│       │   ├── Calendar.jsx
+│       │   ├── DayForm.jsx
+│       │   └── ProtectedRoute.jsx
+│       ├── pages/
+│       │   ├── Login.jsx
+│       │   └── Dashboard.jsx
+│       ├── services/
+│       │   └── api.js
+│       ├── App.jsx
+│       └── main.jsx
+│
+├── backend/
+│   └── src/
+│       ├── config/
+│       │   └── database.js
+│       ├── middleware/
+│       │   └── requireAuth.js
+│       ├── routes/
+│       │   ├── auth.js
+│       │   └── entries.js
+│       ├── controllers/
+│       ├── app.js
+│       └── server.js
+│
+├── database/
+│   └── schema.sql
+└── .env
