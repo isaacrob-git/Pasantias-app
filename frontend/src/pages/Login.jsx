@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { api } from "../services/api";
 
-export default function Login({ onLogin }) {
+export default function Login({ onLogin, theme, onToggleTheme }) {
   const [mode, setMode] = useState("login");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -34,6 +34,18 @@ export default function Login({ onLogin }) {
 
   return (
     <div className="auth-page">
+      <button
+        type="button"
+        className="icon-button theme-toggle auth-theme-toggle"
+        onClick={onToggleTheme}
+        aria-label={
+          theme === "dark" ? "Activar modo claro" : "Activar modo oscuro"
+        }
+        title={theme === "dark" ? "Activar modo claro" : "Activar modo oscuro"}
+      >
+        {theme === "dark" ? "☀️" : "🌙"}
+      </button>
+
       <div className="auth-card">
         <aside className="auth-aside">
           <div className="auth-brand">

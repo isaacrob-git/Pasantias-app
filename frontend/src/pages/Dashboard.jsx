@@ -13,7 +13,7 @@ const EMPTY_SUMMARY = {
   total_days: 0,
 };
 
-export default function Dashboard({ user, onLogout }) {
+export default function Dashboard({ user, onLogout, theme, onToggleTheme }) {
   const [entries, setEntries] = useState([]);
   const [summary, setSummary] = useState(EMPTY_SUMMARY);
   const [selectedDate, setSelectedDate] = useState(() => toISODate());
@@ -101,6 +101,23 @@ export default function Dashboard({ user, onLogout }) {
         </div>
 
         <div className="topbar-user">
+          <button
+            type="button"
+            className="icon-button theme-toggle"
+            onClick={onToggleTheme}
+            aria-label={
+              theme === "dark"
+                ? "Activar modo claro"
+                : "Activar modo oscuro"
+            }
+            title={
+              theme === "dark"
+                ? "Activar modo claro"
+                : "Activar modo oscuro"
+            }
+          >
+            {theme === "dark" ? "☀️" : "🌙"}
+          </button>
           <div className="user-chip">
             <span className="avatar" aria-hidden="true">
               {firstName.charAt(0).toUpperCase()}

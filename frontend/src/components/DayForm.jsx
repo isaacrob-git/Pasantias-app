@@ -90,10 +90,10 @@ export default function DayForm({
       }));
     }
 
-    return [{ start_time: "08:00", end_time: "12:00" }];
+    return [{ start_time: "07:00", "end_time": "16:00" }];
   });
   const [breakMinutes, setBreakMinutes] = useState(
-    entry ? String(entry.break_minutes) : "0"
+    entry ? String(entry.break_minutes) : "60"
   );
   const [notes, setNotes] = useState(entry?.notes || "");
   const [saving, setSaving] = useState(false);
@@ -285,8 +285,7 @@ export default function DayForm({
             onChange={(event) => setBreakMinutes(event.target.value)}
           />
           <p className="field-hint">
-            Se resta una sola vez del total. Si divides la jornada en segmentos,
-            normalmente va en 0.
+            Se resta una sola vez del total (60 min predeterminados para almuerzo).
           </p>
         </div>
 

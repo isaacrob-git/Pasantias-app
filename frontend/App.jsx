@@ -4,11 +4,13 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import ProtectedRoute from "./src/components/ProtectedRoute";
 import Dashboard from "./src/pages/Dashboard";
 import Login from "./src/pages/Login";
+import { useTheme } from "./src/hooks/useTheme";
 import { api } from "./src/services/api";
 
 export default function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     api
@@ -26,7 +28,11 @@ export default function App() {
           user ? (
             <Navigate to="/" replace />
           ) : (
-            <Login onLogin={setUser} />
+            <Login
+              onLogin={setUser}
+              theme={theme}
+              onToggleTheme={toggleTheme}
+            />
           )
         }
       />
@@ -34,7 +40,12 @@ export default function App() {
         path="/"
         element={
           <ProtectedRoute user={user} loading={loading}>
-            <Dashboard user={user} onLogout={() => setUser(null)} />
+            <Dashboard
+              user={user}
+              onLogout={() => setUser(null)}
+              theme={theme}
+              onToggleTheme={toggleTheme}
+            />
           </ProtectedRoute>
         }
       />
