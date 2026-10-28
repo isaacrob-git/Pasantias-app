@@ -83,4 +83,11 @@ app.use((err, req, res, next) => {
   });
 });
 
+// Puerto asignado por Render o 4000 para desarrollo local
+const PORT = process.env.PORT || 4000;
+
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en el puerto ${PORT}`);
+});
+
 module.exports = app;

@@ -19,7 +19,7 @@ async function startServer() {
     console.log("Conexión con PostgreSQL establecida.");
 
     const server = app.listen(PORT, () => {
-      console.log(`Servidor ejecutándose en http://localhost:${PORT}`);
+      console.log(`Servidor corriendo en puerto ${PORT}`);
     });
 
     // Cierre ordenado.
